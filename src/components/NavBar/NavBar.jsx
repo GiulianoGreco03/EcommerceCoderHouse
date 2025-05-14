@@ -1,12 +1,13 @@
 import CartWidget from '../CartWidget/CartWidget'
+import logo from '/src/assets/logo.png'
 import './NavBar.css'
 
 function NavBar() {
   
   return (
     <nav className='navbar'>
-        <div className='logo'>logo</div>
-        <ul className='enlaces'>
+        <img src={logo} className='logo'></img>
+        <ul className='links'>
             <li>Inicio</li>
             <li>Catalogo</li>
             <li>Contacto</li>

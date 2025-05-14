@@ -1,10 +1,10 @@
 import './ItemListConteiner.css'
 
-function ItemListConteiner(){
+function ItemListConteiner(props){
     return(
         <>
         <section>
-            
+            <h2>{props.message}</h2>
         </section>
         </>
     )

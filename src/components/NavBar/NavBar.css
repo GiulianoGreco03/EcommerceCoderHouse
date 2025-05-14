@@ -4,11 +4,18 @@
     justify-content: space-around;
     background-color: var(--primary-color);
     margin: 0;
+    height: 4rem;
 }
 
-.enlaces{
+.links{
     display: flex;
     margin: 0;
+    height: 100%;
+    
+}
+
+.logo{
+    max-height: 90%;
     
 }
 
