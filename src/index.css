@@ -12,11 +12,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary-color: #7F4F24;
+  /*--primary-color: #7F4F24;
   --secondary-color: #F2F3AE;
   --terciary-color: #86BBD8;
   --hover-color: #c7742b;
-  --text-color: #3E4E50;
+  --text-color: #3E4E50;*/
+
+  --primary-color: #e9e0d1;
+  --secondary-color: #91a398;
+  --terciary-color: #33605a;
+  --hover-color: #33605a;
+  --text-color: #070001;
 
   
   

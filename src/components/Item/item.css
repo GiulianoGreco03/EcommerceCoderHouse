@@ -1,0 +1,24 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 20rem;
+    width: 15rem;
+    /*border-color: black;
+    border-style: solid;*/
+    
+    padding: 1rem;
+    margin: 0;
+    background-color: var(--terciary-color);
+}
+
+.imageConteiner{
+    height: 10rem;
+    width: 100%;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
