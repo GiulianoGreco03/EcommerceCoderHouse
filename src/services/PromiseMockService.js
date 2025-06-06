@@ -48,7 +48,7 @@ const products = [
 
 function getProducts(){
     return new Promise( (resolve) => {
-      setTimeout(()=> resolve(products), 3000)
+      setTimeout(()=> resolve(products), 1000)
     })
 }
 

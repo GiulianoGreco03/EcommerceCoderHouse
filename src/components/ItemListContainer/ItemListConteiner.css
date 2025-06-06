@@ -2,6 +2,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
     row-gap: 1rem;
-    padding: 1rem;
+    
     place-items: center;
 }

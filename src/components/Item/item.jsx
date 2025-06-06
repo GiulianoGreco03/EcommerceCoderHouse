@@ -1,18 +1,20 @@
 import  './item.css'
 import { Link } from 'react-router'
 
-function Item({id, title, price, img, stock}){
+function Item({id, title, price, img}){
     return (
         <div className='conteiner'>
             <div className='imageConteiner'>
                 <img src={img} />
             </div>
-            <h3>{title}</h3>
-            <label>${price}</label>
-            <label>Cantidad disponible: {stock}</label>
-            <Link to={`/products/${id}`}>
-                <button>Ver detalle</button>
-            </Link>
+            <div className='item-text'>
+                <label className='item-title'>{title}</label>
+                <label className='item-price'>${price}</label>
+                <Link to={`/products/${id}`}>
+                    <button className='button-default'>Ver detalle</button>
+                </Link>
+            </div>
+            
         </div>
     )
 }

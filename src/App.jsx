@@ -3,6 +3,8 @@ import './App.css'
 import ItemListConteiner from './components/ItemListContainer/ItemListConteiner'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import ItemDetail from './components/ItemDetail/ItemDetail'
+import ContactCard from './components/ContactCard/ContactCard'
+import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 
 function App() {
   
@@ -14,8 +16,8 @@ function App() {
         <Route path="/products" element={<ItemListConteiner/>}  />
         <Route path="/products/:id" element={<ItemDetail/>}    />
         <Route path='/products/category/:category' element={<ItemListConteiner/>} />
-        
-        <Route path='*' element={<a>hola</a>} />
+        <Route path='/contact' element={<ContactCard/>}  />
+        <Route path='*' element={<NotFoundPage/>}  />
       </Routes>
       
     </BrowserRouter>

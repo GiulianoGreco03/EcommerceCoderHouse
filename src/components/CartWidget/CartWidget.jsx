@@ -8,9 +8,9 @@ function CartWidget() {
     
   return (
     <>
-      <button className='cartButton'>
+      <button className='button-default cart'>
         <FaShoppingCart></FaShoppingCart>
-        <div className='cartCounter'>{counter}</div>
+        {counter}
       </button>
       
     </>

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import './ItemListConteiner.css'
 import getProducts from '../../services/PromiseMockService';
 import Loader from '../Loader/loader';
-import Item from '../Item/item';
 import { useParams } from 'react-router';
+import ItemList from '../ItemList/ItemList';
 
 function ItemListConteiner(){
 
@@ -40,12 +40,7 @@ function ItemListConteiner(){
         <>
            <section className='itemConteiner'>
             {loading ? <Loader/>:
-                products.length > 0 ?
-                products.map((item)=>
-                    <Item key={item.id} {...item} />
-                )
-                :
-                <label> Productos no encontrados</label> 
+                <ItemList products={products} />
             }                 
            </section>
                 

@@ -19,7 +19,7 @@ function ItemDetail(){
             setProducto(product)
             setLoading(false)
         }).catch((err) => { alert(err) })
-    },[])
+    },[id])
 
     return(
             loading ? <Loader/> :
@@ -30,19 +30,18 @@ function ItemDetail(){
                         <img src={producto.img} />
                     </div>
                     <div className="text">
-                        <h2>{producto.title}</h2>
+                        <label className="detail-title">{producto.title}</label>
                         
-                        <label>${producto.price}</label>
-                        <label>Unidades restantes: {producto.stock}</label>
+                        <label className="detail-price">${producto.price}</label>
                         <div className="botones">
                             <Counter/>
-                            <button>Agregar al carrito</button>
+                            <button className="button-default">Agregar al carrito</button>
                         </div>
+                         <label>Unidades restantes: {producto.stock}</label>
                     </div>
-                    
                 </div>
                 <p>{producto.text}</p>
-                <button><Link to="/products" className="nav-link">Volver</Link></button>
+                <button className="button-default"><Link to="/products" className="nav-link">Volver</Link></button>
                 
             </div>
         
