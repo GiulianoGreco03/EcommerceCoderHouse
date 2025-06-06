@@ -6,10 +6,19 @@
     width: 15rem;
     /*border-color: black;
     border-style: solid;*/
+    border-radius: 5%;
     
     padding: 1rem;
     margin: 0;
     background-color: var(--terciary-color);
+    transition: all 250ms;
+    
+}
+
+.conteiner:hover{
+    transform: translateY(-0.2rem);
+    box-shadow:  white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 12px rgba(100, 149, 237, 0.3);
 }
 
 .imageConteiner{
@@ -20,5 +29,6 @@
 img{
     max-width: 100%;
     max-height: 100%;
+    border-radius: 5%;
     object-fit: cover;
 }
