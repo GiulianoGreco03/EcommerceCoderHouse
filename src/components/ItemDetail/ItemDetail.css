@@ -88,5 +88,9 @@
     object-fit: contain; 
     max-height: 300px;
   }
+  
+  .detailConteiner {
+    width: 50%;
+  }
 }
 

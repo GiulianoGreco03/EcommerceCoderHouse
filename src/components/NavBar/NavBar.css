@@ -28,7 +28,8 @@
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    height: 100%;
+    margin: 0;
 }
 
 .nav-link {
@@ -40,23 +41,18 @@
     width: 100%;
 }
 
-.links {
-    display: flex;
-    margin: 0;
-    height: 100%;
-}
-
-li {
+.navbarLi {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 5rem;
+    margin: 0;
     list-style-type: none;
     padding: 1rem;
     transition: 0.5s all;
 }
 
-li:hover {
+.navbarLi:hover {
     background-color: var(--hover-color);
     color: white;
 }
@@ -71,6 +67,7 @@ li:hover {
         flex-direction: column;
         background-color: var(--primary-color);
         position: absolute;
+        height: fit-content;
         top: 100%; 
         left: 0;
         right: 0;
@@ -91,7 +88,7 @@ li:hover {
         text-align: center;
     }
 
-    li {
+    .navbarLi {
         width: 100%;
     }
 }

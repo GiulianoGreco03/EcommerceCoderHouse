@@ -22,7 +22,7 @@ function ItemDetail(){
     },[id])
 
     return(
-            loading ? <Loader/> :
+            loading ? <Loader className="loader"/> :
             <div className="detailConteiner">
                 
                 <div className="textImg">

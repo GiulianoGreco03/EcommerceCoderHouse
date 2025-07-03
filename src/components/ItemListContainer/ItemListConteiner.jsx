@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './ItemListConteiner.css'
 import getProducts from '../../services/PromiseMockService';
 import Loader from '../Loader/loader';
+import { Link } from 'react-router';
 import { useParams } from 'react-router';
 import ItemList from '../ItemList/ItemList';
 
@@ -40,7 +41,21 @@ function ItemListConteiner(){
         <>
            <section className='itemConteiner'>
             {loading ? <Loader/>:
-                <ItemList products={products} />
+                <>
+                    <ul className='itemConteinerSideBar'>
+                        <li className='navbarLi'><Link to="/products" className='linkSidebar'>Todos los productos</Link></li>
+                        <li className='navbarLi'><Link to="/products/category/plantas_de_interior" className='linkSidebar'>Plantas de interior</Link></li>
+                        <li className='navbarLi'><Link to="/products/category/cactus_y_crasas" className='linkSidebar'>Cactus y crasas</Link></li>
+                        <li className='navbarLi'>prueba</li>
+                        <li className='navbarLi'>prueba</li>
+                        <li className='navbarLi'>prueba</li>
+                        <li className='navbarLi'>prueba</li>
+                        <li className='navbarLi'>prueba</li>
+                        <li className='navbarLi'>prueba</li>
+                    </ul>
+                    <div className='itemConteinerList'><ItemList  products={products} /></div>
+                    
+                </>
             }                 
            </section>
                 
