@@ -57,6 +57,32 @@ body, html{
   color: white;
 }
 
+/* Aplica a todos los scrolls del proyecto */
+* {
+  scrollbar-width: thin;               /* Para Firefox */
+  scrollbar-color: var(--terciary-color) var(--primary-color); /* Para Firefox */
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--terciary-color);
+  border-radius: 10px;
+  border: 2px solid var(--secondary-color); /* para efecto de padding */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hover-color);
+}
+
 
 
 

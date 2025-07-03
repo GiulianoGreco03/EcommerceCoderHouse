@@ -1,16 +1,16 @@
-import { useState } from 'react';
 import './CartWidget.css'
 import { FaShoppingCart } from "react-icons/fa";
+import { useAppContext } from '../../context/context';
 
 function CartWidget() {
 
-    const [counter] = useState(0);
+  const {cart} = useAppContext()
     
   return (
     <>
       <button className='button-default cart'>
         <FaShoppingCart></FaShoppingCart>
-        {counter}
+        {cart.length}
       </button>
       
     </>

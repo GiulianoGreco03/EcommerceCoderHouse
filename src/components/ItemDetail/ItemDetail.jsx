@@ -5,11 +5,14 @@ import getProducts from "../../services/PromiseMockService";
 import Loader from "../Loader/loader";
 import Counter from "../Counter/Counter";
 import { Link } from "react-router";
+import { useAppContext } from "../../context/context";
 
 function ItemDetail(){
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [producto, setProducto] = useState({});
+
+    const {addToCart} = useAppContext()
 
     useEffect(()=>{
         setLoading(true)
@@ -34,8 +37,8 @@ function ItemDetail(){
                         
                         <label className="detail-price">${producto.price}</label>
                         <div className="botones">
-                            <Counter/>
-                            <button className="button-default">Agregar al carrito</button>
+                            <Counter stock={producto.stock}/>
+                            <button className="button-default" onClick={addToCart}>Agregar al carrito</button>
                         </div>
                          <label>Unidades restantes: {producto.stock}</label>
                     </div>

@@ -5,23 +5,25 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import ItemDetail from './components/ItemDetail/ItemDetail'
 import ContactCard from './components/ContactCard/ContactCard'
 import NotFoundPage from './components/NotFoundPage/NotFoundPage'
+import { ContextProvider } from './context/context'
 
 function App() {
   
   return (
     
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path="/products" element={<ItemListConteiner/>}  />
-        <Route path="/products/:id" element={<ItemDetail/>}    />
-        <Route path='/products/category/:category' element={<ItemListConteiner/>} />
-        <Route path='/contact' element={<ContactCard/>}  />
-        <Route path='*' element={<NotFoundPage/>}  />
-      </Routes>
-      
-    </BrowserRouter>
-      
+    <ContextProvider>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path="/products" element={<ItemListConteiner/>}  />
+          <Route path="/products/:id" element={<ItemDetail/>}    />
+          <Route path='/products/category/:category' element={<ItemListConteiner/>} />
+          <Route path='/contact' element={<ContactCard/>}  />
+          <Route path='*' element={<NotFoundPage/>}  />
+        </Routes>
+        
+      </BrowserRouter>
+    </ContextProvider>  
     
   )
 }
