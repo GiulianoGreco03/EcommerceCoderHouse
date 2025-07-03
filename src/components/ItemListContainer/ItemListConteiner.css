@@ -23,7 +23,10 @@
     background-color: var(--terciary-color);
     height: 25rem;
     width: 9rem;
-    padding-left: 0; 
+    /*padding-left: 0;*/
+    padding: 1rem 0rem 1rem 0rem; 
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 .linkSidebar{
@@ -32,7 +35,8 @@
     justify-content: center;
     align-items: center;
     height: fit-content;
-    width: 8rem;
+    margin: 0;
+    width: fit-content;
 }
 
 
@@ -44,6 +48,8 @@
         padding: 0.5;
         gap: 2rem;
         height: fit-content; 
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 0rem;
     }
 
    

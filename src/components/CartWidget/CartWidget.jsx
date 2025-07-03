@@ -8,7 +8,7 @@ function CartWidget() {
     
   return (
     <>
-      <button className='button-default cart'>
+      <button className='button-default cart' onClick={()=>console.log(cart)}>
         <FaShoppingCart></FaShoppingCart>
         {cart.length}
       </button>

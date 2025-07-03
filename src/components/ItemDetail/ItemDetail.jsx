@@ -10,6 +10,7 @@ import { useAppContext } from "../../context/context";
 function ItemDetail(){
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
+    const [counter, setCounter] = useState(0)
     const [producto, setProducto] = useState({});
 
     const {addToCart} = useAppContext()
@@ -37,8 +38,10 @@ function ItemDetail(){
                         
                         <label className="detail-price">${producto.price}</label>
                         <div className="botones">
-                            <Counter stock={producto.stock}/>
-                            <button className="button-default" onClick={addToCart}>Agregar al carrito</button>
+                            <Counter stock={producto.stock} counter={counter} setCounter={setCounter} />
+                            <button className="button-default"
+                            onClick={() => addToCart({id:producto.id, title:producto.title, quantity:counter})}
+                            >Agregar al carrito</button>
                         </div>
                          <label>Unidades restantes: {producto.stock}</label>
                     </div>
