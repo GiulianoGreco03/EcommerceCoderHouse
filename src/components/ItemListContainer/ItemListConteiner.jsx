@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import './ItemListConteiner.css'
-import getProducts from '../../services/PromiseMockService';
+
 import Loader from '../Loader/loader';
 import { Link } from 'react-router';
 import { useParams } from 'react-router';
 import ItemList from '../ItemList/ItemList';
+import { getProducts } from '../../services/firebaseService';
 
 function ItemListConteiner(){
 
@@ -27,11 +28,18 @@ function ItemListConteiner(){
     useEffect(()=>{
         if(allProducts.length === 0){
             setLoading(true)
-            getProducts().then((result)=>{    
-                setAllProducts(result)
-                filterProducts(result, category)
+            getProducts()
+            .then((result)=>{    
+                const productos = result.docs.map(el=>el.data())
+                console.log(productos);
+                
+                setAllProducts(productos)
+                filterProducts(productos, category)
                 setLoading(false)
             })
+            .catch(()=>alert("Error al cargar productos"))
+
+            
         } else {
             filterProducts(allProducts, category)
         }

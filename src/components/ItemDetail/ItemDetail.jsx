@@ -1,25 +1,25 @@
 import { useParams } from "react-router";
 import "./ItemDetail.css"
 import { useEffect, useState } from "react";
-import getProducts from "../../services/PromiseMockService";
 import Loader from "../Loader/loader";
 import Counter from "../Counter/Counter";
 import { Link } from "react-router";
 import { useAppContext } from "../../context/context";
+import { getProduct } from "../../services/firebaseService";
+
 
 function ItemDetail(){
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
-    const [counter, setCounter] = useState(0)
     const [producto, setProducto] = useState({});
-
+    const [counter, setCounter] = useState(0)
     const {addToCart} = useAppContext()
 
     useEffect(()=>{
         setLoading(true)
-        getProducts()
+        getProduct(id)
         .then((result)=>{
-            const product = result.find(item=>item.id === id)
+            const product = result.data()
             setProducto(product)
             setLoading(false)
         }).catch((err) => { alert(err) })
@@ -39,9 +39,7 @@ function ItemDetail(){
                         <label className="detail-price">${producto.price}</label>
                         <div className="botones">
                             <Counter stock={producto.stock} counter={counter} setCounter={setCounter} />
-                            <button className="button-default"
-                            onClick={() => addToCart({id:producto.id, title:producto.title, quantity:counter})}
-                            >Agregar al carrito</button>
+                            <button className="button-default" onClick={()=>addToCart(producto, counter)}>Agregar al carrito</button>
                         </div>
                          <label>Unidades restantes: {producto.stock}</label>
                     </div>

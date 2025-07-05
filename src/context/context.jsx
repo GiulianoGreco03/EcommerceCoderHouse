@@ -9,17 +9,17 @@ export const ContextProvider = (props) => {
 
     const [cart, setCart] = useState([]);
 
-    const addToCart = (newProduct) => {
-        if (newProduct.quantity <= 0) return;
+    const addToCart = (newProduct, quantity) => {
+        if (quantity <= 0) return;
         if(cart.some((product)=>product.id === newProduct.id)){
             const newCart = cart.map((product)=>
                 product.id === newProduct.id ?
-                     {id:newProduct.id, title:newProduct.title, quantity: product.quantity + newProduct.quantity} :
+                     {id:newProduct.id, title:newProduct.title, price:newProduct.price, quantity: product.quantity + quantity} :
                      product
             )
             setCart(newCart)
         } else{
-          setCart([...cart, newProduct])  
+          setCart([...cart, {id:newProduct.id, title:newProduct.title, price:newProduct.price, quantity:quantity}])  
         }
         
     }
