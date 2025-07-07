@@ -7,6 +7,7 @@ import ContactCard from './components/ContactCard/ContactCard'
 import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 import { ContextProvider } from './context/context'
 import CartConteiner from './components/CartConteiner/CartConteiner'
+import CheckoutForm from './components/Forms/CheckoutForm/CheckoutForm'
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
           <Route path='/products/category/:category' element={<ItemListConteiner/>} />
           <Route path='/contact' element={<ContactCard/>}  />
           <Route path='/cart' element={<CartConteiner/>} />
+          <Route path='/checkout' element={<CheckoutForm/>} />
           <Route path='*' element={<NotFoundPage/>}  />
           
         </Routes>

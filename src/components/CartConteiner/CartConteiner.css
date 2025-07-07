@@ -1,6 +1,8 @@
 .cart-container {
     display: flex;
     flex-direction: column;
+    justify-content: center ;
+    align-items: center;
     padding: 2rem;
     background-color: var(--secondary-color);
     gap: 1rem;
@@ -23,8 +25,8 @@
 }
 
 .cart-items {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(30rem, 30rem));
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 1rem;
 }
@@ -35,4 +37,12 @@
     gap: 0.5rem;
     margin-top: 2rem;
     text-align: center;
+}
+
+@media (max-width: 720px){
+
+    .cart-container{
+        
+    }
+
 }

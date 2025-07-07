@@ -2,6 +2,7 @@ import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore"
 import { db } from "../firebaseConfig"
 
 const productsCollection = collection(db, "Productos")
+const ordersCollection = collection(db, "Ordenes")
 
 export const getProducts = () => {
     return getDocs(productsCollection)
@@ -20,3 +21,5 @@ export const uploadProductArray = (products)=>{
         uploadProduct(element)
     });
 }
+
+export const uploadOrder = order => addDoc(ordersCollection, order)
