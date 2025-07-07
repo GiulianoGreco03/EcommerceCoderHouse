@@ -6,6 +6,7 @@ import ItemDetail from './components/ItemDetail/ItemDetail'
 import ContactCard from './components/ContactCard/ContactCard'
 import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 import { ContextProvider } from './context/context'
+import CartConteiner from './components/CartConteiner/CartConteiner'
 
 function App() {
   
@@ -19,7 +20,9 @@ function App() {
           <Route path="/products/:id" element={<ItemDetail/>}    />
           <Route path='/products/category/:category' element={<ItemListConteiner/>} />
           <Route path='/contact' element={<ContactCard/>}  />
+          <Route path='/cart' element={<CartConteiner/>} />
           <Route path='*' element={<NotFoundPage/>}  />
+          
         </Routes>
         
       </BrowserRouter>

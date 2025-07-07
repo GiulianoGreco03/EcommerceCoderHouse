@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import './ItemListConteiner.css'
 
 import Loader from '../Loader/loader';
-import { Link } from 'react-router';
-import { useParams } from 'react-router';
+import { useParams, Link } from 'react-router';
 import ItemList from '../ItemList/ItemList';
 import { getProducts } from '../../services/firebaseService';
+import FilterSidebar from './FilterSideBar/FilterSideBar';
 
 function ItemListConteiner(){
 
@@ -30,9 +30,7 @@ function ItemListConteiner(){
             setLoading(true)
             getProducts()
             .then((result)=>{    
-                const productos = result.docs.map(el=>el.data())
-                console.log(productos);
-                
+                const productos = result.docs.map(el=>el.data())            
                 setAllProducts(productos)
                 filterProducts(productos, category)
                 setLoading(false)
@@ -50,11 +48,7 @@ function ItemListConteiner(){
            <section className='itemConteiner'>
             {loading ? <Loader/>:
                 <>
-                    <ul className='itemConteinerSideBar'>
-                        <li className='navbarLi'><Link to="/products" className='linkSidebar'>Todos los productos</Link></li>
-                        <li className='navbarLi'><Link to="/products/category/plantas_de_interior" className='linkSidebar'>Plantas de interior</Link></li>
-                        <li className='navbarLi'><Link to="/products/category/cactus_y_crasas" className='linkSidebar'>Cactus y crasas</Link></li>
-                    </ul>
+                    <FilterSidebar/>
                     <div className='itemConteinerList'><ItemList  products={products} /></div>
                     
                 </>

@@ -2,11 +2,12 @@ import './CartWidget.css'
 import { FaShoppingCart } from "react-icons/fa";
 import { useAppContext } from '../../context/context';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 
 function CartWidget() {
 
-  const {cart} = useAppContext()
+  const {cart, calculateCartTotal} = useAppContext()
   const [open, setOpen] = useState(false);
 
 
@@ -27,15 +28,20 @@ function CartWidget() {
           {cart.length === 0 ? (
             <p>Carrito vacío</p>
           ) : (
+            <>
             <ul>
               {cart.map((item) => (
                 <li key={item.id}>
-                  <strong>{item.title}</strong> - unidades:{item.quantity}
+                  <strong>{item.title}</strong> - ${item.price} x {item.quantity} |${item.price * item.quantity}|
                 </li>
-              ))}
+              ))}  
             </ul>
+            <label> Total: {calculateCartTotal()}</label>
+            <Link to={"/cart"} className='button-default'> Ir al carrito </Link>
+            </>
           )}
         </div>
+        
       )}
     </div>
       

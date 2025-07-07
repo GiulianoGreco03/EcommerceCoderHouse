@@ -19,6 +19,8 @@
 
 .cart-dropdown {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   right: 0;
   top: 2.8rem;
   background-color: var(--primary-color);

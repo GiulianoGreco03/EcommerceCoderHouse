@@ -10,9 +10,7 @@ function Item({id, title, price, img}){
             <div className='item-text'>
                 <label className='item-title'>{title}</label>
                 <label className='item-price'>${price}</label>
-                <Link to={`/products/${id}`}>
-                    <button className='button-default'>Ver detalle</button>
-                </Link>
+                <Link to={`/products/${id}`} className='button-default'>Ver detalle</Link>
             </div>
             
         </div>

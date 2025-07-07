@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import "./ItemDetail.css"
 import { useEffect, useState } from "react";
 import Loader from "../Loader/loader";
@@ -11,16 +11,23 @@ import { getProduct } from "../../services/firebaseService";
 function ItemDetail(){
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
+    const [addPressed, setAddPressed] = useState(false)
     const [producto, setProducto] = useState({});
     const [counter, setCounter] = useState(0)
     const {addToCart} = useAppContext()
+
+    const navigate = useNavigate()
+
 
     useEffect(()=>{
         setLoading(true)
         getProduct(id)
         .then((result)=>{
             const product = result.data()
-            setProducto(product)
+            if(product)
+                setProducto(product)
+            else
+                navigate("/not-found")
             setLoading(false)
         }).catch((err) => { alert(err) })
     },[id])
@@ -37,15 +44,21 @@ function ItemDetail(){
                         <label className="detail-title">{producto.title}</label>
                         
                         <label className="detail-price">${producto.price}</label>
-                        <div className="botones">
-                            <Counter stock={producto.stock} counter={counter} setCounter={setCounter} />
-                            <button className="button-default" onClick={()=>addToCart(producto, counter)}>Agregar al carrito</button>
-                        </div>
-                         <label>Unidades restantes: {producto.stock}</label>
+
+                        {addPressed ? <label >Productos agregados al carrito</label> :
+                            <div className="botones">
+                                <Counter stock={producto.stock} counter={counter} setCounter={setCounter} />
+                                <button className="button-default" onClick={()=>{
+                                    addToCart(producto, counter)
+                                    if(counter > 0)
+                                        setAddPressed(true)
+                                    }}>Agregar al carrito</button>
+                            </div>
+                        }
                     </div>
                 </div>
                 <p>{producto.text}</p>
-                <button className="button-default"><Link to="/products" className="nav-link">Volver</Link></button>
+                <Link to="/products" className="button-default">Volver</Link>
                 
             </div>
         

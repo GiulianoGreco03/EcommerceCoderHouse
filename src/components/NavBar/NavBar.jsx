@@ -13,9 +13,9 @@ function NavBar() {
         <img src={logo} className='logo'></img>
         <button className="menu-toggle" onClick={() => setOpen(!open)}>☰</button>
          <ul className={`nav-links ${open ? 'show' : ''}`}>
-           <li className='navbarLi'><Link to="/home" className='nav-link'>Inicio</Link></li>
-            <li className='navbarLi'><Link to="/products" className='nav-link'>Catalogo</Link></li>
-            <li className='navbarLi'><Link to="/contact" className='nav-link'>Contacto</Link></li>
+           <Link to="/home" className='navbarLi'>Inicio</Link>
+            <Link to="/products" className='navbarLi'>Catalogo</Link>
+            <Link to="/contact" className='navbarLi'>Contacto</Link>
         </ul>
         <CartWidget></CartWidget>
 
