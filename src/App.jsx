@@ -1,7 +1,7 @@
 import NavBar from './components/NavBar/NavBar'
 import './App.css'
 import ItemListConteiner from './components/ItemListContainer/ItemListConteiner'
-import { BrowserRouter, Routes, Route } from 'react-router'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router'
 import ItemDetail from './components/ItemDetail/ItemDetail'
 import ContactCard from './components/ContactCard/ContactCard'
 import NotFoundPage from './components/NotFoundPage/NotFoundPage'
@@ -18,7 +18,8 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route index path='/home' element={<Home/>} />
+          <Route path='/' element={<Navigate to="/home" />} />
+          <Route path='/home' element={<Home/>} />
           <Route path="/products" element={<ItemListConteiner/>}  />
           <Route path="/products/:id" element={<ItemDetail/>}    />
           <Route path='/products/category/:category' element={<ItemListConteiner/>} />
