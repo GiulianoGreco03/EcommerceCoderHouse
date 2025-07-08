@@ -8,6 +8,7 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 import { ContextProvider } from './context/context'
 import CartConteiner from './components/CartConteiner/CartConteiner'
 import CheckoutForm from './components/Forms/CheckoutForm/CheckoutForm'
+import Home from './components/Home/Home'
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
+          <Route path='/home' element={<Home/>} />
           <Route path="/products" element={<ItemListConteiner/>}  />
           <Route path="/products/:id" element={<ItemDetail/>}    />
           <Route path='/products/category/:category' element={<ItemListConteiner/>} />

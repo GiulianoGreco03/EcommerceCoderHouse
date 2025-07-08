@@ -39,10 +39,14 @@ export const ContextProvider = (props) => {
         return cart.reduce((total, product)=>total + product.price * product.quantity, 0)
     }
 
+    const calculateCartUnits= () =>{
+        return cart.reduce((units, product)=>units+product.quantity, 0)
+    }
+
     const cleanCart = ()=>setCart([])
 
     return(
-        <AppContext.Provider value={{cart, addToCart, calculateCartTotal, deleteItem, cleanCart}}>
+        <AppContext.Provider value={{cart, addToCart, calculateCartTotal, calculateCartUnits, deleteItem, cleanCart}}>
             {props.children}
         </AppContext.Provider>
     )

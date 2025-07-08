@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 function CartWidget() {
 
-  const {cart, calculateCartTotal} = useAppContext()
+  const {cart, calculateCartTotal, calculateCartUnits} = useAppContext()
   const [open, setOpen] = useState(false);
 
 
@@ -20,7 +20,7 @@ function CartWidget() {
         onClick={() => setOpen(!open)}
       >
         <FaShoppingCart />
-        {cart.length}
+        {calculateCartUnits()}
       </button>
 
       {open && (
