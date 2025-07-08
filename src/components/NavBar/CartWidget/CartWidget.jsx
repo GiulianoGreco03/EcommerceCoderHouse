@@ -1,6 +1,6 @@
 import './CartWidget.css'
 import { FaShoppingCart } from "react-icons/fa";
-import { useAppContext } from '../../context/context';
+import { useAppContext } from '../../../context/context';
 import { useState } from 'react';
 import { Link } from 'react-router';
 

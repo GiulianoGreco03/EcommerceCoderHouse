@@ -3,7 +3,7 @@ import './ItemListConteiner.css'
 
 import Loader from '../Loader/loader';
 import { useParams, Link } from 'react-router';
-import ItemList from '../ItemList/ItemList';
+import ItemList from './ItemList/ItemList';
 import { getProducts } from '../../services/firebaseService';
 import FilterSidebar from './FilterSideBar/FilterSideBar';
 

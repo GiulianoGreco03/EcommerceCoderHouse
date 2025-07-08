@@ -6,6 +6,14 @@
     gap: 1rem;
 }
 
+.upload-conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--terciary-color);
+    height: 4rem;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;

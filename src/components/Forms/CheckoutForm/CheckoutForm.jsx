@@ -26,7 +26,12 @@ function CheckoutForm() {
   };
 
   return (
-    uploaded ? <label>Tu pedido se subio correctamente. ID de pedido: {id}</label>:
+    uploaded ? 
+    <div className="upload-conteiner">
+        <label>Tu pedido se subio correctamente. <br /> ID de pedido: {id}</label>
+    </div>
+    
+    :
     <form onSubmit={handleSubmit(onSubmit)} className="formulario-contacto">
       <div className="form-group">
         <label className="form-label">Nombre</label>
